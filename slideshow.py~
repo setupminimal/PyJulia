@@ -1,0 +1,5 @@
+import julia
+import time
+
+ct = time.localtime()
+julia.julia(julia.pickTimeInterest(), (ct.tm_hour % 6 + 2), pickColor=julia.timeBased, height=700, width=700).show()
