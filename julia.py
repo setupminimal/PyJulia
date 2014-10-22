@@ -151,6 +151,8 @@ def julia(c, exponent, width=500, height=500, real_min=-2.0, real_max=2.0, imag_
 				x = abs(x)
 			drawer.point((ipix, rpix), fill=pickColor(n, x, real, imag)) # n varies between 255 and 5
 	
+	time.increase()
+	
 	# And return results
 	return image
 

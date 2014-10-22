@@ -9,9 +9,11 @@ class Fish():
 		self.tm_sec = counter % 60
 
 def localtime():
-	global counter
-	counter += 0.5
 	return Fish(counter)
 
 def time():
 	return counter
+
+def increase():
+	global counter
+	counter += 1.0

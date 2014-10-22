@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw, ImageFilter
-import numpy, math, random, time, itertools, perlin
+import numpy, math, random, itertools, perlin
+import fakeTime as time
 
 def noise(n):  # Prototype noise adding function to change texture
 	return n + 10 * random.random()

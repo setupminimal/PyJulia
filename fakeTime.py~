@@ -12,3 +12,6 @@ def localtime():
 	global counter
 	counter += 0.5
 	return Fish(counter)
+
+def time():
+	return counter
