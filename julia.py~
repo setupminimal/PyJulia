@@ -63,8 +63,10 @@ def pickNearnessInterest(c=complex(0, 0), r=2, step=0): # Prototype to pick poin
 		return c
 
 def gentleClamp(v, up, low):
-	while not (low <= v < up):
-		v = up - v % up
+	if v > up:
+		v = up
+	else if v < low:
+		v = low
 	return v
 
 def toRGB(n): # H in [0, 360), S in [0, 1], V in [0, 1]

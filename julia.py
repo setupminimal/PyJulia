@@ -65,7 +65,7 @@ def pickNearnessInterest(c=complex(0, 0), r=2, step=0): # Prototype to pick poin
 def gentleClamp(v, up, low):
 	if v > up:
 		v = up
-	else if v < low:
+	elif v < low:
 		v = low
 	return v
 
