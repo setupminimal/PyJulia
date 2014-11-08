@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageFilter
 import numpy, math, random, itertools, perlin
-import fakeTime as time
+import time
 
 def noise(n):  # Prototype noise adding function to change texture
 	return n + 10 * random.random()
@@ -65,7 +65,7 @@ def pickNearnessInterest(c=complex(0, 0), r=2, step=0): # Prototype to pick poin
 def gentleClamp(v, up, low):
 	if v > up:
 		v = up
-	else if v < low:
+	elif v < low:
 		v = low
 	return v
 
@@ -153,7 +153,7 @@ def julia(c, exponent, width=500, height=500, real_min=-2.0, real_max=2.0, imag_
 				x = abs(x)
 			drawer.point((ipix, rpix), fill=pickColor(n, x, real, imag)) # n varies between 255 and 5
 	
-	time.increase()
+	#time.increase()
 	
 	# And return results
 	return image

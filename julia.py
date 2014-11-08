@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageFilter
 import numpy, math, random, itertools, perlin
-import fakeTime as time
+import time
 
 def noise(n):  # Prototype noise adding function to change texture
 	return n + 10 * random.random()
@@ -38,8 +38,8 @@ def pickRandomInterest(): # Picks a probably interesting point near the border o
 	y = y + (0.5 - random.random()) / 2.0
 	return complex(x, y)
 
-def pickTimeInterest(): # Same as pickRandomInterest, but based on time
-	ct = time.time()
+def pickTimeInterest(offset=0.0): # Same as pickRandomInterest, but based on time
+	ct = time.time() + offset
 	t = (ct % (60 * 60 * 24)) / (60 * 60 * 24) * math.pi
 	x = (2.0 * math.cos(t) - math.cos(2.0 * t)) / 3.5 # 4.0 is exact border
 	y = (2.0 * math.sin(t) - math.sin(2.0 * t)) / 4.0
@@ -153,7 +153,7 @@ def julia(c, exponent, width=500, height=500, real_min=-2.0, real_max=2.0, imag_
 				x = abs(x)
 			drawer.point((ipix, rpix), fill=pickColor(n, x, real, imag)) # n varies between 255 and 5
 	
-	time.increase()
+	#time.increase()
 	
 	# And return results
 	return image
