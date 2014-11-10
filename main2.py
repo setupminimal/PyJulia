@@ -15,7 +15,7 @@ class JuliaWindow(tk.Frame):
 		ct = time.localtime()
 		real_min, real_max, imag_min, imag_max = julia.pickViewWindow()
 		#image1 = julia.julia(julia.pickTimeInterest(), ct.tm_hour % 6 + 2, WIDTH, HEIGHT, real_min = real_min, real_max = real_max, imag_min = imag_min, imag_max = imag_max)
-		image1 = combinedJulia.combined(julia.pickTimeInterest(), ct.tm_hour % 6 + 2, 0, julia.pickTimeInterest(600.0), ct.tm_min % 15 + 2, 1.4*math.sin((ct.tm_hour / 12 * math.pi) + math.pi) + 1.4j*math.cos((ct.tm_hour / 12 * math.pi) + math.pi), WIDTH, HEIGHT, real_min = real_min, real_max = real_max, imag_min = imag_min, imag_max = imag_max)
+		image1 = combinedJulia.combined(julia.pickTimeInterest(), ct.tm_hour % 6 + 2, 0, julia.pickTimeInterest(600.0), ct.tm_min % 15 + 2, julia.pickOffset(), WIDTH, HEIGHT, real_min = real_min, real_max = real_max, imag_min = imag_min, imag_max = imag_max)
 		self.img = ImageTk.PhotoImage(image1)
 		
 		# set the label image

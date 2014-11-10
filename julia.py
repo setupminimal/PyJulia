@@ -15,6 +15,13 @@ def pickViewWindow():
 	SIZE = 2.0
 	return (x - SIZE, x + SIZE, y - SIZE, y + SIZE)
 
+def pickOffset():
+	x_min, x_max, y_min, y_max = pickViewWindow()
+	centerpoint = (x_max - x_min)/2.0 + (y_max - y_min)/2.0 * 1j
+	r = abs(centerpoint)
+	offset = centerpoint/r
+	return offset
+
 def mandlebrotDistance(c): # Finds distance from a point to the Mandlebrot Set (source: Wiki)
 	n = 0
 	zprime = 0
@@ -128,7 +135,7 @@ redAndGold = colorBlend([240, 38, 42], [181, 139, 2])
 greenAndRed = colorBlend([29, 237, 21], [237, 36, 21])
 
 def julia(c, exponent, width=500, height=500, real_min=-2.0, real_max=2.0, imag_min=-2.0, imag_max=2.0, pickColor=timeBased, allPerlin = False):
-	print "Julia Called: ", c, " + ", exponent
+	#print "Julia Called: ", c, " + ", exponent
 	perlin.regenerate()
 	
 	# Generate evenly spaced values over real and imaginary ranges
