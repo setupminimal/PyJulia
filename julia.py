@@ -139,8 +139,8 @@ def julia(c, exponent, width=500, height=500, real_min=-2.0, real_max=2.0, imag_
 	perlin.regenerate()
 	
 	# Generate evenly spaced values over real and imaginary ranges
-	real_range = numpy.arange(real_min, real_max, (real_max - real_min) / width)
-	imag_range = numpy.arange(imag_max, imag_min, (imag_min - imag_max) / height)
+	real_range = numpy.arange(real_min, real_max, float(real_max - real_min) / width)
+	imag_range = numpy.arange(imag_max, imag_min, float(imag_min - imag_max) / height)
 	
 	# Obtain image to work with
 	image = Image.new('RGB', (width, height), (0, 0, 0))
@@ -168,5 +168,7 @@ def julia(c, exponent, width=500, height=500, real_min=-2.0, real_max=2.0, imag_
 def saveImage(path, c, n, colorBalance):
 	julia(c, n, colorBalance).save(path)
 
+
 if __name__ == "__main__":
-	julia(complex(0.0, 0.66), 2, (0.5, 1, 0.5)).show()
+	import sys
+	julia(complex(sys.argv[1], sys.argv[2]), sys.argv[3], pickColor=silverAndGold, width=750, height=750).save(sys.argv[4])
