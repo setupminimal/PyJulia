@@ -134,6 +134,8 @@ redAndGold = colorBlend([240, 38, 42], [181, 139, 2])
 
 greenAndRed = colorBlend([29, 237, 21], [237, 36, 21])
 
+meganMix = colorBlend([254, 248, 139], [51, 26, 0])
+
 def julia(c, exponent, width=500, height=500, real_min=-2.0, real_max=2.0, imag_min=-2.0, imag_max=2.0, pickColor=timeBased, allPerlin = False):
 	#print "Julia Called: ", c, " + ", exponent
 	perlin.regenerate()
@@ -171,4 +173,4 @@ def saveImage(path, c, n, colorBalance):
 
 if __name__ == "__main__":
 	import sys
-	julia(complex(sys.argv[1], sys.argv[2]), sys.argv[3], pickColor=silverAndGold, width=750, height=750).save(sys.argv[4])
+	julia(complex(sys.argv[1]), 3, pickColor=meganMix, width=1920, height=1920).save(sys.argv[2])
